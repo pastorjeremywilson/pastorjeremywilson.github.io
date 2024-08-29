@@ -1,8 +1,11 @@
 html {
     background-color: white;
+    display: flex;
+    justify-content: center;
 }
 body {
-    background-color: #ccccff;
+    padding: 20px;
+    background-color: #ddddff;
     border: 2px solid #5555aa;
     width: 70vw;
 }
