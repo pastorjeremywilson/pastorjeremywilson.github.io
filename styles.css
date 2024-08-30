@@ -6,20 +6,19 @@ a:link {
     font-weight: 600;
 }
 body {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    background-color: #eeeeff;
-    border: 2px solid #5555aa;
-    width: 70vw;
+    width: 60vw;
     font-family: "Montserrat", sans-serif;
     font-size: 1.1vw;
+    margin-top: 0;
 }
 h2 {
     padding: 5px;
     background-color: white;
     border: 2px solid #5555aa;
     width: 70%;
+}
+h3 {
+    font-style: italic;
 }
 html {
     background-color: white;
@@ -28,24 +27,62 @@ html {
 }
 img {
     float: left;
-    margin-right: 10px;
+    margin-left: 10px;
 }
 
+.body {
+    display: flex;
+    flex-direction: column;
+    padding: 1vw;
+    background-color: #eeeeff;
+    border: 2px solid #5555aa;
+    margin-top: 14vw;
+    width: 100%;
+}
 .clear {
     clear: both;
 }
 .downloadIcon {
     width: 10vw;
-    margin-top: 2vh;
     background-color: white;
     border: 2px solid #5555aa;
+    margin: 0;
+}
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    width: calc(60vw + 4px);
+    background-color: white;
+    border-bottom: 2px solid #5555aa;
+    padding: 1vw;
+    margin-top: 0;
+}
+.headerLogo {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.linkBar {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin: 0;
+    padding: 0;
 }
 .mainIcon {
     width: 7vw;
+    float: left;
+    margin: 0;
+    margin-right: 20px;
 }
 .pageIcon {
     width: 10vw;
 }
 .programContainer {
     margin-bottom: 40px;
+}
+.standard {
+    font-size: 1.1vw;
 }
