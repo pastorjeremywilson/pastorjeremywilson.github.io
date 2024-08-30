@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<head>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<html>
+	<body>
+		<div class="header">
+			<div class="headerLogo">
+				<a href="./index.html"><img class="pageIcon" src="./images/Wilsons Widgets Logo.svg" /></a>
+				<h1>Wilson's Widgets</h1>
+				<br class="clear" />
+			</div>
+		</div>
+
+		<div class="body">
+			<div style="background-color: white;">
+				<img class="mainIcon" src="./images/wgIcon.svg" />
+				<h1>Weekly Giving</h1>
+				<div class="linkBar">
+					<a href="https://sourceforge.net/projects/weeklygiving/files/latest/download" title="Download now from SourceForge" target="_blank">
+						<img class="downloadIcon" src="./images/downloadIcon.svg" />
+					</a>
+					&nbsp;&nbsp;&nbsp;
+					<a class="standard" href="https://github.com/pastorjeremywilson/WeeklyGiving" target="_blank" title="Visit ProjectOn on GitHub">
+						<img src="./images/github-mark.svg" height=50 width=50 />
+					</a>
+					&nbsp;&nbsp;&nbsp;
+					<a class="standard" href="https://sourceforge.net/p/weeklygiving/" target="_blank" title="Visit Projecton on SourceForge">
+						<img src="https://sourceforge.net/sflogo.php?type=17&amp;group_id=2917827" width=200>
+					</a>
+				</div>
+			</div>
+            <h2 id="what-am-i">What Am I?</h2>
+            <p>Weekly Giving is a little program to enter, store, print, retrieve, and graph weekly giving at your church.</p>
+            <h2 id="why-weekly-giving">Why Weekly Giving?</h2>
+            <p>Are you or your trustees counting the collection plate on a calculator or adding machine, filling out tally sheets
+            by hand? Weekly Giving is a flexable program to simplify the process of counting the day's giving, printing an organized
+            and detailed report to give to your treasurer.</p>
+            <h2 id="installation">Installation</h2>
+            <p>Currently, Weekly Giving is available for the Microsoft Windows operating
+            system only. Download the current Weekly Giving installer (v.1.4.2) and run
+            it on your computer.</p>
+            <h2 id="using-weekly-giving">Using Weekly Giving</h2>
+            <p><em>This information will get you started, but for more in-depth information</em>
+            <em>on using Weekly Giving, please click “Help” and “Help Topics” in the menu.</em></p>
+            <h3 id="screen-layout">Screen Layout</h3>
+            <p>When you first run Weekly Giving, you’ll be greeted with a screen consisting of five areas where you
+            can record the day's giving:</p>
+            <ul>
+            <li>Bills</li>
+            <li>Coins</li>
+            <li>Checks</li>
+            <li>Special Designations</li>
+            <li>Notes</li>
+            </ul>
+            <p>In the Bills and Coins sections, you'll input the quantity of each denomination (i.e. if you have five ten-dollar
+            bills, you would enter '5' and if you have eight quarters, you would enter '8'). In the Checks section, you can
+            enter the value of each check. And in the Notes section, you can enter any notes pertaining to the giving. All of
+            these, including the notes, will be on the printed report.</p>
+            <h3 id="settings">Settings</h3>
+            <p>There are various changes that can be made to the Weekly Giving program. By choosing the &quot;Settings&quot; menu
+            you will find that you can change such things as:</p>
+            <ul>
+            <li>Your Church's Name</li>
+            <li>The Special Offering Designations</li>
+            <li>Whether to include the Special Designations in the Total Deposit</li>
+            <li>The Maximum Number of Checks</li>
+            <li>Where the Database is Stored</li>
+            </ul>
+            <p>Changing the church name will change the name that appears at the upper-left of the screen as well as the name
+            printed on the report.</p>
+            <p>Special Offering Designations are those offerings that have been designated by the giver to go to a particular
+            ministry or fund. If you have special designations that are commonly given, you can change the default labels
+            to reflect those designations.</p>
+            <p>Most commonly, special designations are included in the total deposit your treasurer records for the week. However,
+            if your processes separate those special offerings out from the total deposit, you can choose to keep them out of the
+            total printed on the report.</p>
+            <p>The default number of check boxes available on the program's main screen is 30. If you commonly have more or less checks
+            than this, you can change the number of check boxes shown.</p>
+            <p>If you would like the database that stores all of your givings week-to-week to be stored in a different location, say,
+            a network drive, you can change that as well.</p>
+            <h2 id="known-issues">Known Issues</h2>
+            <h2 id="technologies-and-credits">Technologies and Credits</h2>
+            <br>
+            <div>
+                <img src='https://github.com/pastorjeremywilson/public/blob/main/python-logo-only.svg?raw=true' width=40px align='right' />
+                Weekly Giving is written primarily in
+                <a class="standard" class="standard" href="https://www.python.org" target="_blank">
+                    <span class="standard">Python</span>
+                </a>, compiled through
+                <a class="standard" href="https://www.pyinstaller.org" target="_blank">
+                    <span class="standard">PyInstaller</span>
+                </a>,
+                and packaged into an installation executable with
+                <a class="standard" href="https://jrsoftware.org/isinfo.php" target="_blank">
+                    <span class="standard">Inno Setup Compiler</span>
+                </a>.
+            </div>
+            <br>
+            <div>
+                <img src='https://github.com/pastorjeremywilson/public/blob/main/sqlite370.jpg?raw=true' height=40px align='right' />
+                Weekly Giving’s main database is
+                <a class="standard" href="https://www.sqlite.org" target="_blank">
+                    <span class="standard">SQLite</span>
+                </a> and the remaining data files are
+                stored in the
+                <a class="standard" href="https://www.json.org/json-en.html" target="_blank">
+                    <span class="standard">JSON</span>
+                </a> format.
+            </div>
+            <br>
+            <div>
+                <img src='https://github.com/pastorjeremywilson/public/blob/main/Qt-logo-neon.png?raw=true' height=40px align='right' />
+                Weekly Giving uses
+                <a class="standard" href="https://www.qt.io/product/framework" target="_blank">
+                    <span class="standard">Qt</span>
+                </a> (PyQt5) for the user interface.</span>
+            </div>
+            <br>
+            <div>
+                <img src='https://github.com/pastorjeremywilson/public/blob/main/ghostscript-plus-text.png?raw=true' height=40px align='right' />
+                Printing made possible with the help of Artifex Software's
+                <a class="standard" href="https://www.ghostscript.com" target="_blank">
+                    <span class="standard">Ghostscript</span>
+                </a>.
+            </div>
+            <br>
+            All trademarks (c) their respective owners.
+            <h2 id="licensing">Licensing</h2>
+            <img src='https://github.com/pastorjeremywilson/public/blob/main/gnu-4.svg?raw=true' height=120px align='left' />
+            ProjectOn is licensed under the GNU General Public License (GNU GPL)
+            published by the Free Software Foundation, either version 3 of the
+            License, or (at your option) any later version. See
+            <a class="standard" href="http://www.gnu.org/licenses/" target="_blank">
+                <span class="standard">http://www.gnu.org/licenses/</span>
+            </a>
+        </div>
+	</body>
+</html>
