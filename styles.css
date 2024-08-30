@@ -59,11 +59,6 @@ img {
     padding: 1vw;
     margin-top: 0;
 }
-.headerLogo {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
 .linkBar {
     display: flex;
     align-items: center;
@@ -76,6 +71,9 @@ img {
     float: left;
     margin: 0;
     margin-right: 20px;
+}
+.menuIcon {
+    width: 5vw;
 }
 .pageIcon {
     width: 10vw;
