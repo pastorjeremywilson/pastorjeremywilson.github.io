@@ -97,22 +97,20 @@
 	</body>
 	<script>
 		function loadJSON(paths, success, error) {
-			for(let i = 0; i < paths.length; i++) {
-				console.log("loadJSON");
-				var xhr = new XMLHttpRequest();
-				xhr.onreadystatechange = function () {
-					if (xhr.readyState === 4) {
-						if (xhr.status === 200) {
-							success(JSON.parse(xhr.responseText));
-						}
-						else {
-							error(xhr);
-						}
+			console.log("loadJSON");
+			var xhr = new XMLHttpRequest();
+			xhr.onreadystatechange = function () {
+				if (xhr.readyState === 4) {
+					if (xhr.status === 200) {
+						success(JSON.parse(xhr.responseText));
 					}
-				};
-				xhr.open('GET', paths[i], true);
-				xhr.send();
-			}
+					else {
+						error(xhr);
+					}
+				}
+			};
+			xhr.open('GET', paths[i], true);
+			xhr.send();
 		}
 	
 		function jsonFound(data) {
@@ -130,6 +128,8 @@
 			"https://api.github.com/repos/pastorjeremywilson/WeeklyGiving/tags",
 			"https://api.github.com/repos/pastorjeremywilson/SpeeDReaD/tags"
 		];
-		loadJSON(paths, jsonFound, jsonErr);
+		for(let i = 0; i < paths.length; i++) {
+			loadJSON(paths[i], jsonFound, jsonErr);
+		}
 	</script>
 </html>
