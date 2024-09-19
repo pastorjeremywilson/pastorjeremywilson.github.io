@@ -4,8 +4,49 @@
 	<link rel="icon" type="image/x-icon" href="/images/Wilsons Widgets Logo.svg">
 	<link rel="stylesheet" href="styles.css">
 </head>
+
+<script>
+	function loadJSON(paths, success, error) {
+		console.log("loadJSON");
+		var xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function () {
+			if (xhr.readyState === 4) {
+				if (xhr.status === 200) {
+					success(JSON.parse(xhr.responseText));
+				}
+				else {
+					error(xhr);
+				}
+			}
+		};
+		for(let i = 0; i < paths.length; i++) {
+			xhr.open('GET', paths[i], true);
+			xhr.send();
+		}
+	}
+
+	function jsonFound(data) {
+		console.log(data);
+	}
+
+	function jsonErr(data) {
+		console.log("Error retreiving json data " + data);
+	}
+
+	function loadTagData() {
+		console.log("onload");
+		paths = [
+			"https://api.github.com/repos/pastorjeremywilson/ProjectOn/tags",
+			"https://api.github.com/repos/pastorjeremywilson/SermonPrepDatabase/tags",
+			"https://api.github.com/repos/pastorjeremywilson/WeeklyGiving/tags",
+			"https://api.github.com/repos/pastorjeremywilson/SpeeDReaD/tags"
+		];
+		loadJSON(paths, jsonFound, jsonErr);
+	};
+</script>
+
 <html>
-	<body>
+	<body onload="loadTagData">
 		<div class="header">
             <a href="./index.html">
 			    <img class="pageIcon" src="./images/Wilsons Widgets Logo.svg" />
@@ -24,7 +65,7 @@
 			</a>
 		</div>
 
-		<div class="body" onload="loadTagData">
+		<div class="body">
 			<div class="programContainer">
 				<h2>Sermon Solution</h2>
 				<a href="sermonprepdatabase.html">
@@ -94,45 +135,5 @@
 			</div>
 			<br class="clear" />
 		</div>
-
-		<script>
-			function loadJSON(paths, success, error) {
-				console.log("loadJSON");
-				var xhr = new XMLHttpRequest();
-				xhr.onreadystatechange = function () {
-					if (xhr.readyState === 4) {
-						if (xhr.status === 200) {
-							success(JSON.parse(xhr.responseText));
-						}
-						else {
-							error(xhr);
-						}
-					}
-				};
-				for(let i = 0; i < paths.length; i++) {
-					xhr.open('GET', paths[i], true);
-					xhr.send();
-				}
-			}
-		
-			function jsonFound(data) {
-				console.log(data);
-			}
-		
-			function jsonErr(data) {
-				console.log("Error retreiving json data " + data);
-			}
-	
-			function loadTagData() {
-				console.log("onload");
-				paths = [
-					"https://api.github.com/repos/pastorjeremywilson/ProjectOn/tags",
-					"https://api.github.com/repos/pastorjeremywilson/SermonPrepDatabase/tags",
-					"https://api.github.com/repos/pastorjeremywilson/WeeklyGiving/tags",
-					"https://api.github.com/repos/pastorjeremywilson/SpeeDReaD/tags"
-				];
-				loadJSON(paths, jsonFound, jsonErr);
-			};
-		</script>
 	</body>
 </html>
