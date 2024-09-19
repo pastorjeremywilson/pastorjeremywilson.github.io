@@ -5,6 +5,15 @@
 <script src="https://github.com/octokit/octokit.js"></script>
 <script>
 	console.log("Hello World!");
+	const octokit = new Octokit({ 
+		auth: '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',
+	});
+	data = await octokit.request("GET /repos/pastorjeremywilson/ProjectOn", {
+		owner: "pastorjeremywilson",
+		repo: "ProjectOn",
+		per_page: 2
+	});
+	console.log(data);
 </script>
 <html>
 	<body>
