@@ -30,7 +30,7 @@
 				<a href="sermonprepdatabase.html">
 					<img class="mainIcon" src="./images/spdIcon.svg" />
 				</a>
-				<a class="linkText" href="sermonprepdatabase.html">Sermon Prep Database</a>
+				<a id="spdTitle" class="linkText" href="sermonprepdatabase.html">Sermon Prep Database</a>
 				<br />
 				<p>
 					Sermon Prep Database is a program to organize - and store for easy retrieval - your thoughts and
@@ -102,19 +102,23 @@
 			xhr.onreadystatechange = function () {
 				if (xhr.readyState === 4) {
 					if (xhr.status === 200) {
-						success(JSON.parse(xhr.responseText));
+						success(JSON.parse(xhr.responseText), path[1]);
 					}
 					else {
 						error(xhr);
 					}
 				}
 			};
-			xhr.open('GET', path, true);
+			xhr.open('GET', path[0], true);
 			xhr.send();
 		}
 	
-		function jsonFound(data) {
-			console.log(data);
+		function jsonFound(data, progName) {
+			console.log(progName);
+			let newestVersion = data[0].name;
+			if(progName == "Sermon Prep Database") {
+				document.getElementById("spdTitle").setHtml(progName + " " + newestVersion);
+			}
 		}
 	
 		function jsonErr(data) {
@@ -123,10 +127,10 @@
 	
 		console.log("creating paths");
 		paths = [
-			"https://api.github.com/repos/pastorjeremywilson/ProjectOn/tags",
-			"https://api.github.com/repos/pastorjeremywilson/SermonPrepDatabase/tags",
-			"https://api.github.com/repos/pastorjeremywilson/WeeklyGiving/tags",
-			"https://api.github.com/repos/pastorjeremywilson/SpeeDReaD/tags"
+			["https://api.github.com/repos/pastorjeremywilson/ProjectOn/tags", "ProjectOn"],
+			["https://api.github.com/repos/pastorjeremywilson/SermonPrepDatabase/tags", "Sermon Prep Database"],
+			["https://api.github.com/repos/pastorjeremywilson/WeeklyGiving/tags", "Weekly Giving"],
+			["https://api.github.com/repos/pastorjeremywilson/SpeeDReaD/tags", "SpeeDReaD"]
 		];
 		for(let i = 0; i < paths.length; i++) {
 			loadJSON(paths[i], jsonFound, jsonErr);
