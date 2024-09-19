@@ -96,7 +96,7 @@
 		</div>
 	</body>
 	<script>
-		function loadJSON(paths, success, error) {
+		function loadJSON(path, success, error) {
 			console.log("loadJSON");
 			var xhr = new XMLHttpRequest();
 			xhr.onreadystatechange = function () {
@@ -109,7 +109,7 @@
 					}
 				}
 			};
-			xhr.open('GET', paths[i], true);
+			xhr.open('GET', paths true);
 			xhr.send();
 		}
 	
