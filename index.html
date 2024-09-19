@@ -111,13 +111,6 @@
 				xhr.send();
 			}
 		}
-		paths = [
-			"https://api.github.com/repos/pastorjeremywilson/ProjectOn/tags",
-			"https://api.github.com/repos/pastorjeremywilson/SermonPrepDatabase/tags",
-			"https://api.github.com/repos/pastorjeremywilson/WeeklyGiving/tags",
-			"https://api.github.com/repos/pastorjeremywilson/SpeeDReaD/tags"
-		]
-		loadJSON(paths, jsonFound, jsonErr);
 	
 		function jsonFound(data) {
 			console.log(data);
@@ -126,5 +119,15 @@
 		function jsonErr(data) {
 			console.log("Error retreiving json data " + data);
 		}
+
+		document.onLoad = function() {
+			paths = [
+				"https://api.github.com/repos/pastorjeremywilson/ProjectOn/tags",
+				"https://api.github.com/repos/pastorjeremywilson/SermonPrepDatabase/tags",
+				"https://api.github.com/repos/pastorjeremywilson/WeeklyGiving/tags",
+				"https://api.github.com/repos/pastorjeremywilson/SpeeDReaD/tags"
+			]
+			loadJSON(paths, jsonFound, jsonErr);
+		};
 	</script>
 </html>
