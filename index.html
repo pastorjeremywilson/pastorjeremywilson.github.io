@@ -97,6 +97,7 @@
 	</body>
 	<script>
 		function loadJSON(paths, success, error) {
+			console.log("loadJSON");
 			var xhr = new XMLHttpRequest();
 			xhr.onreadystatechange = function () {
 				if (xhr.readyState === 4) {
@@ -123,6 +124,7 @@
 		}
 
 		document.onload = function() {
+			console.log("onload");
 			paths = [
 				"https://api.github.com/repos/pastorjeremywilson/ProjectOn/tags",
 				"https://api.github.com/repos/pastorjeremywilson/SermonPrepDatabase/tags",
