@@ -106,8 +106,8 @@
 					}
 				}
 			};
-			for(path:paths) {
-				xhr.open('GET', path, true);
+			for(let i = 0; i < paths.length; i++) {
+				xhr.open('GET', paths[i], true);
 				xhr.send();
 			}
 		}
