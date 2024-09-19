@@ -2,7 +2,32 @@
 <head>
 	<link rel="stylesheet" href="styles.css">
 </head>
-/*<script src="https://github.com/octokit/octokit.js"></script>*/
+<script>
+	function loadJSON(path, success, error) {
+		var xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function () {
+			if (xhr.readyState === 4) {
+				if (xhr.status === 200) {
+					success(JSON.parse(xhr.responseText));
+				}
+				else {
+					error(xhr);
+				}
+			}
+		};
+		xhr.open('GET', path, true);
+		xhr.send();
+	}
+	loadJSON("https://api.github.com/repos/pastorjeremywilson/ProjectOn/tags", jsonFound, jsonErr);
+
+	function jsonFound(data) {
+		console.log(data);
+	}
+
+	function jsonErr(data) {
+		console.log("Error retreiving json data " + data);
+	}
+</script>
 <html>
 	<body>
 		<div class="header">
