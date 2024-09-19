@@ -47,7 +47,7 @@
 				<a href="projecton.html">
 					<img class="mainIcon" src="./images/projectonIcon.svg" />
 				</a>
-				<a class="linkText" href="projecton.html">ProjectOn</a>
+				<a id="projecton" class="linkText" href="projecton.html">ProjectOn</a>
 				<br />
 				<p>
 					ProjectOn is an open-source multimedia projection program geared towards producing and running
@@ -64,7 +64,7 @@
 				<a href="weeklygiving.html">
 					<img class="mainIcon" src="./images/wgIcon.svg" />
 				</a>
-				<a class="linkText" href="weeklygiving.html">Weekly Giving</a>
+				<a id="weeklyGiving" class="linkText" href="weeklygiving.html">Weekly Giving</a>
 				<br />
 				<p>
 					Weekly Giving is a program to simplify tallying Sunday's offerings, storing them for later retrieval
@@ -81,7 +81,7 @@
 				<a href="speedread.html">
 					<img class="mainIcon" src="./images/srIcon.svg" />
 				</a>
-				<a class="linkText" href="speedread.html">SpeeDReaD</a>
+				<a id="speedread" class="linkText" href="speedread.html">SpeeDReaD</a>
 				<br />
 				<p>
 					SpeeD ReaD helps you to read faster and more efficiently. By minimizing subvocalization and
@@ -116,8 +116,15 @@
 		function jsonFound(data, progName) {
 			console.log(progName);
 			let newestVersion = data[0].name;
+			let text = progName + " " + newestVersion;
 			if(progName == "Sermon Prep Database") {
-				document.getElementById("spdTitle").innerHTML = progName + " " + newestVersion;
+				document.getElementById("spdTitle").innerHTML = text;
+			} else if(progName == "ProjectOn") {
+				document.getElementById("projecton").innerHTML = text;
+			} else if(progName == "Weekly Giving") {
+				document.getElementById("weeklyGiving").innerHTML = text;
+			} else if(progname == "SpeeDReaD") {
+				document.getElementById("speedread").innerHTML = text;
 			}
 		}
 	
