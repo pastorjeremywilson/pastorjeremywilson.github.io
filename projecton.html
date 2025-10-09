@@ -322,8 +322,9 @@
 		function jsonFound(data, progName) {
 			console.log(progName);
 			console.log(data);
-			let newestVersion = data[0].name;
-			let text = "Currently, ProjectOn is available for the Microsoft Windows operating system only. Download the current ProjectOn installer (" + newestVersion + ") and run it on your computer."
+			let newestVersion = data[0].tag_name;
+			let url = data[0].assets.browser_download_url
+			let text = "Currently, ProjectOn is available for the Microsoft Windows operating system only. Download the current <a href='" + url + "'>ProjectOn installer (" + newestVersion + ")</a> and run it on your computer."
 			document.getElementById("installation-instructions").innerHTML = text;
 		}
 	
@@ -331,7 +332,7 @@
 			console.log("Error retreiving json data " + data);
 		}
 
-		loadJSON(["https://api.github.com/repos/pastorjeremywilson/ProjectOn/tags", "ProjectOn"], jsonFound, jsonErr);
+		loadJSON(["https://api.github.com/repos/pastorjeremywilson/projecton/releases", "ProjectOn"], jsonFound, jsonErr);
 	</script>
 	
 </html>
