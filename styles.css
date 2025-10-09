@@ -5,6 +5,11 @@ a:link {
     font-size: 1.5vw;
     font-weight: 600;
 }
+.inline_link {
+    font-color: #eeeeff;
+    font-size: 1.1vw;
+    font-weight: 600;
+}
 body {
     width: 60vw;
     font-family: "Montserrat", sans-serif;
