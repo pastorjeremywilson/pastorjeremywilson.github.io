@@ -52,7 +52,7 @@
             projection needs of a church service.</p>
 
             <h2 id="installation">Installation</h2>
-            <p>Currently, ProjectOn is available for the Microsoft Windows operating
+            <p id="installation-instructions">Currently, ProjectOn is available for the Microsoft Windows operating
             system only. Download the current ProjectOn installer (v.1.5.4) and run
             it on your computer.</p>
 
@@ -300,4 +300,37 @@
             </a>.</p>
         </div>
 	</body>
+
+	<script>
+		function loadJSON(path, success, error) {
+			console.log("loadJSON");
+			var xhr = new XMLHttpRequest();
+			xhr.onreadystatechange = function () {
+				if (xhr.readyState === 4) {
+					if (xhr.status === 200) {
+						success(JSON.parse(xhr.responseText), path[1]);
+					}
+					else {
+						error(xhr);
+					}
+				}
+			};
+			xhr.open('GET', path[0], true);
+			xhr.send();
+		}
+	
+		function jsonFound(data, progName) {
+			console.log(progName);
+			let newestVersion = data[0].name;
+			let text = "Currently, ProjectOn is available for the Microsoft Windows operating system only. Download the current ProjectOn installer (" + newestVersion + ") and run it on your computer."
+			document.getElementById("installation-instructions").innerHTML = text;
+		}
+	
+		function jsonErr(data) {
+			console.log("Error retreiving json data " + data);
+		}
+
+		loadJSON(["https://api.github.com/repos/pastorjeremywilson/ProjectOn/tags", "ProjectOn"], jsonFound, jsonErr);
+	</script>
+	
 </html>
