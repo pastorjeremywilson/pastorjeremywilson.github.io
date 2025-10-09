@@ -193,4 +193,37 @@
 			</div>
 		</div>
 	</body>
+
+	<script>
+		function loadJSON(path, success, error) {
+			console.log("loadJSON");
+			var xhr = new XMLHttpRequest();
+			xhr.onreadystatechange = function () {
+				if (xhr.readyState === 4) {
+					if (xhr.status === 200) {
+						success(JSON.parse(xhr.responseText), path[1]);
+					}
+					else {
+						error(xhr);
+					}
+				}
+			};
+			xhr.open('GET', path[0], true);
+			xhr.send();
+		}
+	
+		function jsonFound(data, progName) {
+			let newestVersion = data[0].tag_name;
+			let url = data[0].assets[0].browser_download_url
+			let text = "Currently, Sermon Prep Database is available for the Microsoft Windows operating system only. Download the current <a class='inline_link' href='" + url + "'>Sermon Prep Database installer (" + newestVersion + ")</a> and run it on your computer."
+			document.getElementById("installation-instructions").innerHTML = text;
+		}
+	
+		function jsonErr(data) {
+			console.log("Error retreiving json data " + data);
+		}
+
+		loadJSON(["https://api.github.com/repos/pastorjeremywilson/SermonPrepDatabase/releases", "SermonPrepDatabase"], jsonFound, jsonErr);
+	</script>
+	
 </html>
