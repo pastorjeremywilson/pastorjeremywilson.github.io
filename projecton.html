@@ -320,8 +320,6 @@
 		}
 	
 		function jsonFound(data, progName) {
-			console.log(progName);
-			console.log(data);
 			let newestVersion = data[0].tag_name;
 			let url = data[0].assets[0].browser_download_url
 			let text = "Currently, ProjectOn is available for the Microsoft Windows operating system only. Download the current <a class='inline_link' href='" + url + "'>ProjectOn installer (" + newestVersion + ")</a> and run it on your computer."
