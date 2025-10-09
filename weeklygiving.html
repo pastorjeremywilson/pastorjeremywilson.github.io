@@ -47,7 +47,7 @@
             by hand? Weekly Giving is a flexable program to simplify the process of counting the day's giving, printing an organized
             and detailed report to give to your treasurer.</p>
             <h2 id="installation">Installation</h2>
-            <p>Currently, Weekly Giving is available for the Microsoft Windows operating
+            <p id="installation-instructions">Currently, Weekly Giving is available for the Microsoft Windows operating
             system only. Download the current Weekly Giving installer (v.1.4.2) and run
             it on your computer.</p>
             <h2 id="using-weekly-giving">Using Weekly Giving</h2>
@@ -148,4 +148,37 @@
             </p>
         </div>
 	</body>
+
+	<script>
+		function loadJSON(path, success, error) {
+			console.log("loadJSON");
+			var xhr = new XMLHttpRequest();
+			xhr.onreadystatechange = function () {
+				if (xhr.readyState === 4) {
+					if (xhr.status === 200) {
+						success(JSON.parse(xhr.responseText), path[1]);
+					}
+					else {
+						error(xhr);
+					}
+				}
+			};
+			xhr.open('GET', path[0], true);
+			xhr.send();
+		}
+	
+		function jsonFound(data, progName) {
+			let newestVersion = data[0].tag_name;
+			let url = data[0].assets[0].browser_download_url
+			let text = "Currently, Weekly Giving is available for the Microsoft Windows operating system only. Download the current <a class='inline_link' href='" + url + "'>Weekly Giving installer (" + newestVersion + ")</a> and run it on your computer."
+			document.getElementById("installation-instructions").innerHTML = text;
+		}
+	
+		function jsonErr(data) {
+			console.log("Error retreiving json data " + data);
+		}
+
+		loadJSON(["https://api.github.com/repos/pastorjeremywilson/WeeklyGiving/releases", "Weekly Giving"], jsonFound, jsonErr);
+	</script>
+	
 </html>
